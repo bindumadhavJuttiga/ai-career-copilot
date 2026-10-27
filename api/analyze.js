@@ -28,7 +28,15 @@ export default async function handler(req, res) {
         body: JSON.stringify({
           contents: [{
             parts: [{
-              text: `Analyze this resume for the following job description. Return useful feedback including an ATS match score, strengths, weaknesses, and improvement suggestions.
+              text: `Analyze this resume against the job description.
+Return ONLY a valid JSON object with these exact fields:
+{
+  "ats_score": 75,
+  "summary": "Overall assessment",
+  "strengths": ["Strength 1", "Strength 2", "Strength 3"],
+  "missing_keywords": ["Keyword 1", "Keyword 2"],
+  "improvements": ["Improvement 1", "Improvement 2"]
+}
 
 RESUME:
 ${resume}
