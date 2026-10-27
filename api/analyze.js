@@ -54,7 +54,7 @@ ${jobDescription}`
     });
   } catch (error) {
     return res.status(500).json({
-      error: "Server error while analyzing the resume."
+        error: `Server error: ${error.message}`,
     });
   }
 }
